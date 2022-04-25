@@ -19,9 +19,17 @@ const Mainroutes = () => {
        {/* /books/* route need to be protected */}
        <Route path="/" element={<Home/>} />
        <Route path="/about" element={<About/>} />
-       <Route path="/books" element={<Books/>} />
        <Route path="/login" element={<Login/>} />
        <Route path="/logout" element={<Logout/>} />
+       <Route path="/books/*" element={
+         <RequiredAuth>
+           <Books/>
+         </RequiredAuth>
+       }>
+         <Route path=":id/" element={<SingleBook/>}>
+           <Route path=":edit" element={<EditBookData/>} />
+         </Route>
+       </Route>
       </Routes>
     </>
   );

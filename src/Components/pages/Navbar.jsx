@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { AuthContext } from "../context/AuthContext";
 
@@ -23,15 +23,16 @@ export const Navbar = () => {
 
   return (
     <>
-       <Navigationbar>
-             {/* keep all the NavLinks here */}
-        <Link  className="link" to="/" >Home</Link>
-        <Link  className="link" to="/about" >About</Link>
-        <Link  className="link" to="/books" >Books</Link>
-        <Link  className="link" to="/login" >Login</Link>
-        <Link  className="link" to="/logout" >Logout</Link>
-       </Navigationbar>
-    
+      
+        <nav>
+          <Navigationbar>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/books">Books</NavLink>
+          {token ? <NavLink to="/logout">LogOut</NavLink> :  <NavLink to="/login">Login</NavLink> }
+          {/* keep all the NavLinks here */}
+          </Navigationbar>
+        </nav>   
      
     </>
   );
