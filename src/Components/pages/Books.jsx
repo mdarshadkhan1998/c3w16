@@ -12,17 +12,8 @@ export const Grid = styled.div`
 const Books = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    const getData = async() => {
- // make a GET request to http://localhost:8080/books to get all the books data
-
-    const respon = await fetch("http://localhost:8080/books");
-    const data = await respon.json();
-      console.log(data)
-    setData([...data]);
-    }
-  
-    getData();
-  }, []);
+ // make a GET request to http://localhost:8080/books to get all the books data  
+    } );
 
   return (
     <>
@@ -33,12 +24,7 @@ const Books = () => {
           } */}
           {
             data.map((element) => (
-              <BookCard 
-                      key={element.id} 
-                      title={element.title} 
-                      thumbnailUrl={element.thumbnailUrl} 
-                      isbn={element.isbn} 
-                      id={element.id} />
+              <BookCard />
             ))
           }
       </Grid>
