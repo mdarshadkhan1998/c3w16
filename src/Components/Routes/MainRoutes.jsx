@@ -1,4 +1,3 @@
-import react from "react";
 import { Routes, Route } from "react-router-dom";
 import { About } from "../pages/About";
 import Books from "../pages/Books";
@@ -22,13 +21,12 @@ const Mainroutes = () => {
        <Route path="/login" element={<Login/>} />
        <Route path="/logout" element={<Logout/>} />
        <Route path="/books/*" element={
-         <RequiredAuth>
-           <Books/>
-         </RequiredAuth>
+         <RequiredAuth><Books/></RequiredAuth>
        }>
          <Route path=":id/" element={<SingleBook/>}>
            <Route path=":edit" element={<EditBookData/>} />
          </Route>
+         {/* <Route path=":id" element={<SingleBook/>}/> */}
        </Route>
       </Routes>
     </>
